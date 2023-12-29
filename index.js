@@ -20,10 +20,6 @@ const conexion = mysql.createConnection({
 
 // Conectar la base de datos
 conexion.connect(error => {
-  if (error) {
-    console.error('Error de conexión a la base de datos:', err);
-    return;
-  }
   console.log('Conexión exitosa a la base de datos MySQL');
 });
 
@@ -78,7 +74,6 @@ app.delete('/escuela/:id', (pedido, respuesta) => {
 
 // Escuchar en el puerto especificado
 app.listen(port, () => {
-  console.log(`Servidor Node.js escuchando en http://localhost:${port}/escuela`);
 });
 
 
