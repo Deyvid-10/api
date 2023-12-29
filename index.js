@@ -23,8 +23,12 @@ conexion.connect(error => {
   console.log('Conexión exitosa a la base de datos MySQL');
 });
 
-app.get('/', (req, res) => {
-  res.send('¡Bienvenido a mi API!');
+app.get('/', (pedido, respuesta) => {
+    
+  conexion.query('SELECT * FROM estudiantes', (error, resultado) => {
+    if (error) throw error
+    respuesta.send(resultado)
+  });
 });
 
 // Rutas para obtener todos los datos
